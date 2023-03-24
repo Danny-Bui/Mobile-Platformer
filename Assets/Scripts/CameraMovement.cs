@@ -8,8 +8,13 @@ public class CameraMovement : MonoBehaviour
     [SerializeField] float _smoothing; 
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, _player.position, _smoothing) + new Vector3(0f,0f,-10f);
+        Move();
+    }
+
+    private void Move()
+    {
+        transform.position = _player.transform.position + new Vector3(0f, 0f, -10f);
     }
 }
